@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import useSound from "use-sound";
+
 import "../styles.css";
 
 const Pomodoro = () => {
@@ -6,6 +8,8 @@ const Pomodoro = () => {
 	const [minute, setMinute] = useState("25");
 	const [counter, setCounter] = useState(5);
 	const [active, setActive] = useState(false);
+	const [play] = useSound("../sounds/crash.mp3");
+
 	useEffect(() => {
 		let intervalId;
 		if (active) {
@@ -18,23 +22,18 @@ const Pomodoro = () => {
 				setCounter((counter) => counter - 1);
 			}, 1000);
 		}
-		if (counter === 0) {
-			let ride = new Audio("../sounds/crash.mp3");
-			ride.play();
-			console.log(ride);
+		setTimeout(() => {
+			if (counter === 0) {
+				setSecond("00");
+				setMinute("00");
+				setCounter(0);
+				setActive(false);
+				play();
+			}
+		});
 
-			setSecond("00");
-			setMinute("00");
-			setCounter(0);
-		}
 		return () => clearInterval(intervalId);
-	}, [active, counter]);
-	// function handleSound(e) {
-	// 	e.preventDefault();
-	// 	let reek = new Audio("sounds/crash.mp3");
-	// 	reek.play();
-	// 	console.log("hey");
-	// }
+	}, [active, counter, play]);
 
 	return (
 		<div id="pomodoro">
@@ -45,7 +44,7 @@ const Pomodoro = () => {
 			</h1>
 			<p>lorem ipsum dolor sit amet, consectetur</p>
 			<button onClick={() => setActive(!active)}>Start</button>
-			<button>sound</button>
+			<button onClick={play}>sound</button>
 		</div>
 	);
 };
