@@ -24,15 +24,17 @@ const Shortbreak = () => {
 	}, [counter, active]);
 
 	return (
-		<div id="shortbreak">
-			<h1>
-				<span>{minute}</span>
-				<span>:</span>
-				<span>{second}</span>
-			</h1>
-			<p>lorem ipsum dolor sit amet, consectetur</p>
-			<button onClick={() => setActive(!active)}>START</button>
-		</div>
+		<>
+			<div id="shortbreak">
+				<h1>
+					<span>{minute}</span>
+					<span>:</span>
+					<span>{second}</span>
+				</h1>
+				<p>lorem ipsum dolor sit amet, consectetur</p>
+				<button onClick={() => setActive(!active)}>START</button>
+			</div>
+		</>
 	);
 };
 

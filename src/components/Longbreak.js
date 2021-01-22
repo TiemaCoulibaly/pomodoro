@@ -22,15 +22,17 @@ const Longbreak = () => {
 		return () => clearInterval(intervalId);
 	}, [counter, active]);
 	return (
-		<div id="longbreak">
-			<h1>
-				<span>{minute}</span>
-				<span>:</span>
-				<span>{second}</span>
-			</h1>
-			<p>lorem ipsum dolor sit amet, consectetur</p>
-			<button onClick={() => setActive(!active)}>START</button>
-		</div>
+		<>
+			<div id="longbreak">
+				<h1>
+					<span>{minute}</span>
+					<span>:</span>
+					<span>{second}</span>
+				</h1>
+				<p>lorem ipsum dolor sit amet, consectetur</p>
+				<button onClick={() => setActive(!active)}>START</button>
+			</div>
+		</>
 	);
 };
 
