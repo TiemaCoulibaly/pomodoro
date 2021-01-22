@@ -55,7 +55,7 @@ const Pomodoro = () => {
 				<p>lorem ipsum dolor sit amet, consectetur</p>
 				<button onClick={() => setActive(!active)}>Start</button>
 				<button onClick={handleClick}>sound</button>
-				<button onClick={() => setActive(null)}>STOP</button>
+				<button onClick={() => setActive(null)}>Stop</button>
 			</div>
 		</>
 	);
