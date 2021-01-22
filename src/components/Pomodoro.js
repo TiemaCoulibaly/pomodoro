@@ -25,10 +25,6 @@ const Pomodoro = () => {
 		}
 		setTimeout(() => {
 			if (counter === 0) {
-				// setSecond("00");
-				// setMinute("00");
-				// setCounter(0);
-				// setActive(false);
 				play();
 				clearTimeout(intervalId);
 			}
@@ -39,6 +35,12 @@ const Pomodoro = () => {
 	function handleClick() {
 		play();
 	}
+	const resetTimer = () => {
+		setSecond("00");
+		setMinute("25");
+		setCounter(1500);
+		setActive(false);
+	};
 
 	return (
 		<>
@@ -53,9 +55,11 @@ const Pomodoro = () => {
 					</span>
 				</h1>
 				<p>lorem ipsum dolor sit amet, consectetur</p>
-				<button onClick={() => setActive(!active)}>Start</button>
+				<button onClick={() => setActive(!active)}>
+					{active ? "Pause" : "Start"}
+				</button>
 				<button onClick={handleClick}>sound</button>
-				<button onClick={() => setActive(null)}>Stop</button>
+				<button onClick={resetTimer}>Reset</button>
 			</div>
 		</>
 	);
