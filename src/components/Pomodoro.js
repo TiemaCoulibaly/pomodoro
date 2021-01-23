@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
 import boopSfx from "../sounds/crash.mp3";
 import { Redirect } from "react-router-dom";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import Button from "@material-ui/core/Button";
 import "../styles.css";
 
 const Pomodoro = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("25");
-	const [counter, setCounter] = useState(5);
+	const [counter, setCounter] = useState(1500);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boopSfx);
 
@@ -18,8 +20,17 @@ const Pomodoro = () => {
 				const secondCounter = counter % 60;
 				const minuteCounter = Math.floor(counter / 60);
 
-				setSecond(secondCounter);
-				setMinute(minuteCounter);
+				const updatedSecond =
+					String(secondCounter).length === 1
+						? `0${secondCounter}`
+						: secondCounter;
+				const updatedMinute =
+					String(minuteCounter).length === 1
+						? `0${minuteCounter}`
+						: minuteCounter;
+
+				setSecond(updatedSecond);
+				setMinute(updatedMinute);
 				setCounter((counter) => counter - 1);
 			}, 1000);
 		}
@@ -45,6 +56,7 @@ const Pomodoro = () => {
 	return (
 		<>
 			<div id="pomodoro">
+				<LinearProgress variant="determinate" value={counter} />
 				<h1>
 					<span>
 						{counter === 0 ? <Redirect to="/Shortbreak" /> : minute}
@@ -55,11 +67,21 @@ const Pomodoro = () => {
 					</span>
 				</h1>
 				<p>lorem ipsum dolor sit amet, consectetur</p>
-				<button onClick={() => setActive(!active)}>
+				<Button
+					variant="contained"
+					color="primary"
+					onClick={() => setActive(!active)}>
 					{active ? "Pause" : "Start"}
-				</button>
-				<button onClick={handleClick}>sound</button>
-				<button onClick={resetTimer}>Reset</button>
+				</Button>
+				<Button variant="contained" onClick={handleClick}>
+					sound
+				</Button>
+				<Button
+					variant="contained"
+					color="secondary"
+					onClick={resetTimer}>
+					Reset
+				</Button>
 			</div>
 		</>
 	);
