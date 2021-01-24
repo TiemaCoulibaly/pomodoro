@@ -1,20 +1,32 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Card, Box } from "@material-ui/core";
+import { Card, Box, makeStyles } from "@material-ui/core";
 import "../styles.css";
 
 import Navbar from "./Navbar";
 import Pomodoro from "./Pomodoro";
 import Shortbreak from "./Shortbreak";
 import Longbreak from "./Longbreak";
-
+import "../styles.css";
 const Header = () => {
+	const useStyles = makeStyles({
+		header: {
+			height: "80vh",
+			paddingTop: "40px",
+		},
+
+		card: {
+			boxShadow: "15px 15px 15px #0C6170",
+			borderRadius: "20px",
+		},
+	});
+	const classes = useStyles();
 	return (
-		<div id="header">
+		<div id="header" className={classes.header}>
 			<Router>
-				<Navbar />
+				<Navbar className={classes.navbar} />
 				<Box display="flex" justifyContent="center">
-					<Card boxShadow={3} style={{ width: "300px" }}>
+					<Card className={classes.card} style={{ width: "450px" }}>
 						<Route path="/" exact>
 							<Pomodoro />
 						</Route>

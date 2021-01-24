@@ -3,37 +3,17 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-#main {
-	background-color: aquamarine;
-	height: 100vh;
-	display: flex;
-	justify-content: space-around;
-}
-#header {
-	text-align: center;
-	padding: 20px;
-	height: 60vh;
-	background-color: #a8ccc9;
-}
-#titre {
-	text-align: center;
-}
-#pomodoro {
-	background-color: rgb(211, 43, 226);
-	height: 40vh;
-	border-radius: 30px;
-}
-#longbreak {
-	background-color: #e36397;
-	border-radius: 30px;
-}
-#shortbreak {
-	background-color: rgb(226, 177, 43);
-	border-radius: 30px;
-}
 
 .linkNavbar {
 	text-decoration: none;
-	margin: 10px;
+
 	color: white;
+}
+#header {
+	background-color: #37beb0;
+	background-image: url("https://www.transparenttextures.com/patterns/food.png");
+}
+#content-divider {
+	height: 0.5rem;
+	background: linear-gradient(to left, #f2545b, #37beb0, #fad02c);
 }
