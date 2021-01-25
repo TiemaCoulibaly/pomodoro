@@ -10,6 +10,7 @@ const App = () => {
 			<Header />
 			<Divider />
 			<Main />
+			<Divider />
 			<Footer />
 		</div>
 	);

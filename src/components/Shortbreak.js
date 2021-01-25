@@ -52,8 +52,8 @@ const Shortbreak = () => {
 			},
 		},
 		text: {
-			fontFamily: "Bree Serif serif",
-			fontSize: 20,
+			fontFamily: "Patrick Hand",
+			fontSize: 23,
 			fontWeight: "bold",
 			marginBottom: "15px",
 			marginTop: "10px",

@@ -15,5 +15,22 @@
 }
 #content-divider {
 	height: 0.5rem;
-	background: linear-gradient(to left, #f2545b, #37beb0, #fad02c);
+	background: linear-gradient(to left, #fad02c, #575d90, #37beb0, #f2545b);
+}
+#main {
+	background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
+}
+hr {
+	width: 18vw;
+	height: 6px;
+	background-color: #f2545b;
+	margin-left: 250px;
+	margin-top: 20px;
+}
+li {
+	margin: 10px;
+}
+article span a {
+	color: #f2545b;
+	text-decoration: none;
 }
