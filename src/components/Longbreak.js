@@ -18,13 +18,46 @@ const Longbreak = () => {
 		longbreak: {
 			backgroundColor: "#A4E5E0",
 			textAlign: "center",
-			height: "250px",
+			height: "300px",
+		},
+		timeContainer: {
+			paddingTop: "10px",
 		},
 		time: {
-			fontSize: "80px",
+			fontSize: "100px",
+			textShadow: "3px 3px 3px #BDA0BC",
 		},
-		button: {
+		buttonStart: {
 			margin: "10px",
+			backgroundColor: "#575D90",
+			color: "white",
+			fontWeight: "bold",
+			fontSize: 17,
+			height: "45px",
+
+			"&:hover": {
+				backgroundColor: "#575D90",
+				boxShadow: "4px 4px 4px  #575D90",
+			},
+		},
+		buttonReset: {
+			margin: "10px",
+			backgroundColor: "#CB429F",
+			color: "white",
+			fontWeight: "bold",
+			fontSize: 17,
+			height: "45px",
+			"&:hover": {
+				backgroundColor: "#CB429F",
+				boxShadow: "4px 4px 4px #CB429F",
+			},
+		},
+		text: {
+			fontFamily: "Bree Serif serif",
+			fontSize: 20,
+			fontWeight: "bold",
+			marginBottom: "15px",
+			marginTop: "10px",
 		},
 	});
 	const classes = useStyles();
@@ -70,7 +103,7 @@ const Longbreak = () => {
 	return (
 		<div className={classes.longbreak}>
 			<LinearProgress variant="determinate" value={counter} />
-			<h1>
+			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
 					{counter === -1 ? <Redirect to="/" /> : minute}
 				</span>
@@ -79,9 +112,19 @@ const Longbreak = () => {
 					{counter === -1 ? <Redirect to="/" /> : second}
 				</span>
 			</h1>
-			<p>Etre concentré pour plus de productivité</p>
+			<p className={classes.text}>
+				⌛🛌Une{" "}
+				<a
+					href="https://www.topsante.com/forme-bien-etre/relaxation/micro-sieste-mode-d-emploi-608963#:~:text=Il%20vaut%20mieux%20ne%20pas,endormissement%20et%20le%20sommeil%20profond."
+					target="_blank"
+					rel="noreferrer">
+					{" "}
+					micro-sieste
+				</a>{" "}
+				pour optimiser sont rendement🪑⏰
+			</p>
 			<Button
-				className={classes.button}
+				className={classes.buttonStart}
 				startIcon={<TimerIcon />}
 				variant="outlined"
 				color="primary"
@@ -90,7 +133,7 @@ const Longbreak = () => {
 			</Button>
 
 			<Button
-				className={classes.button}
+				className={classes.buttonReset}
 				startIcon={<RotateLeftIcon />}
 				variant="contained"
 				color="secondary"

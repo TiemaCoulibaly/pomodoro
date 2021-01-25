@@ -12,12 +12,13 @@ const Header = () => {
 	const useStyles = makeStyles({
 		header: {
 			height: "80vh",
-			paddingTop: "40px",
+			paddingTop: "100px",
 		},
 
 		card: {
 			boxShadow: "15px 15px 15px #0C6170",
 			borderRadius: "20px",
+			width: "550px",
 		},
 	});
 	const classes = useStyles();
@@ -26,7 +27,7 @@ const Header = () => {
 			<Router>
 				<Navbar className={classes.navbar} />
 				<Box display="flex" justifyContent="center">
-					<Card className={classes.card} style={{ width: "450px" }}>
+					<Card className={classes.card}>
 						<Route path="/" exact>
 							<Pomodoro />
 						</Route>

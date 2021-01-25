@@ -12,45 +12,44 @@ const Navbar = () => {
 
 		pomodoro: {
 			backgroundColor: "#F2545B",
-			height: "30px",
+			height: "35px",
 			width: "110px",
 			fontWeight: "bold",
 			color: "white",
-			boxShadow: "1px 1px 1px 1px black",
+			boxShadow: "4px 4px 4px 1px black",
 			margin: "10px",
 			textDecoration: "none",
 			fontSize: 13,
 			"&:hover": {
-				backgroundColor: "#878E88",
-				boxShadow: "4px 4px 4px  white",
+				boxShadow: "7px 7px 7px  #FD151B",
 			},
 		},
 		shortbreak: {
 			backgroundColor: "#F2545B",
-			height: "30px",
+			height: "35px",
 			width: "110px",
 			fontWeight: "bold",
 			color: "white",
-			boxShadow: "1px 1px 1px 1px black",
+			boxShadow: "4px 4px 4px 1px black",
 			margin: "10px",
 			textDecoration: "none",
 			fontSize: 13,
 			"&:hover": {
-				backgroundColor: "#B4EBCA",
+				boxShadow: "7px 7px 7px  #FD151B",
 			},
 		},
 		longbreak: {
 			backgroundColor: "#F2545B",
-			height: "30px",
+			height: "35px",
 			width: "110px",
 			fontWeight: "bold",
 			color: "white",
-			boxShadow: "1px 1px 1px 1px black",
+			boxShadow: "4px 4px 4px 1px black",
 			margin: "10px",
 			textDecoration: "none",
 			fontSize: 13,
 			"&:hover": {
-				backgroundColor: "#85D2D0",
+				boxShadow: "7px 7px 7px  #FD151B",
 			},
 		},
 	});
@@ -70,7 +69,7 @@ const Navbar = () => {
 					</Link>
 				</Button>
 
-				<Button className={classes.longbreak} variant="contained">
+				<Button className={classes.longbreak}>
 					<Link className="linkNavbar" to="/longbreak">
 						Longbreak
 					</Link>

@@ -6,14 +6,12 @@ import Main from "./components/Main";
 
 const App = () => {
 	return (
-		<>
-			<div>
-				<Header />
-				<Divider />
-				<Main />
-				<Footer />
-			</div>
-		</>
+		<div>
+			<Header />
+			<Divider />
+			<Main />
+			<Footer />
+		</div>
 	);
 };
 

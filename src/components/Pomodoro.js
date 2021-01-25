@@ -19,13 +19,46 @@ const Pomodoro = () => {
 		pomodoro: {
 			backgroundColor: "#D3FAC7",
 			textAlign: "center",
-			height: "250px",
+			height: "300px",
+		},
+		timeContainer: {
+			paddingTop: "10px",
 		},
 		time: {
-			fontSize: "80px",
+			fontSize: "100px",
+			textShadow: "3px 3px 3px #BDA0BC",
 		},
-		button: {
+		buttonStart: {
 			margin: "10px",
+			backgroundColor: "#575D90",
+			color: "white",
+			fontWeight: "bold",
+			fontSize: 17,
+			height: "45px",
+
+			"&:hover": {
+				backgroundColor: "#575D90",
+				boxShadow: "4px 4px 4px  #575D90",
+			},
+		},
+		buttonReset: {
+			margin: "10px",
+			backgroundColor: "#CB429F",
+			color: "white",
+			fontWeight: "bold",
+			fontSize: 17,
+			height: "45px",
+			"&:hover": {
+				backgroundColor: "#CB429F",
+				boxShadow: "4px 4px 4px #CB429F",
+			},
+		},
+		text: {
+			fontFamily: "Bree Serif serif",
+			fontSize: 20,
+			fontWeight: "bold",
+			marginBottom: "15px",
+			marginTop: "10px",
 		},
 	});
 	const classes = useStyles();
@@ -71,7 +104,7 @@ const Pomodoro = () => {
 	return (
 		<div className={classes.pomodoro}>
 			<LinearProgress variant="determinate" value={counter} />
-			<h1>
+			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
 					{counter === -1 ? <Redirect to="/Shortbreak" /> : minute}
 				</span>
@@ -80,21 +113,21 @@ const Pomodoro = () => {
 					{counter === -1 ? <Redirect to="/Shortbreak" /> : second}
 				</span>
 			</h1>
-			<p>Etre concentré pour plus de productivité</p>
+			<p className={classes.text}>
+				⏰⏳ Etre Concentré Pour Plus De Productivité 📈💻
+			</p>
 			<Button
-				className={classes.button}
+				className={classes.buttonStart}
 				startIcon={<TimerIcon />}
-				variant="outlined"
-				color="primary"
+				variant="contained"
 				onClick={() => setActive(!active)}>
 				{active ? "Pause" : "Start"}
 			</Button>
 
 			<Button
-				className={classes.button}
+				className={classes.buttonReset}
 				startIcon={<RotateLeftIcon />}
 				variant="contained"
-				color="secondary"
 				onClick={resetTimer}>
 				Reset
 			</Button>
