@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
-import boopSfx from "../sounds/crash.mp3";
+import boopSfx from "../sounds/bip.wav";
 import { Redirect } from "react-router-dom";
 import { LinearProgress, Button, makeStyles } from "@material-ui/core";
-import "../styles.css";
+
 import TimerIcon from "@material-ui/icons/Timer";
 import RotateLeftIcon from "@material-ui/icons/RotateLeft";
 const Shortbreak = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("05");
-	const [counter, setCounter] = useState(300);
+	const [counter, setCounter] = useState(3);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boopSfx);
 

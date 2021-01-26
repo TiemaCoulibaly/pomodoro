@@ -21,16 +21,13 @@
 	background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
 }
 hr {
-	width: 18vw;
+	width: 80px;
 	height: 6px;
 	background-color: #f2545b;
-	margin-left: 250px;
-	margin-top: 20px;
 }
 li {
 	margin: 10px;
 }
-article span a {
-	color: #f2545b;
+span a {
 	text-decoration: none;
 }

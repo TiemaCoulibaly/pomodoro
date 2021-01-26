@@ -1,53 +1,52 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-
-import "../styles.css";
+import { makeStyles, Box } from "@material-ui/core";
 
 const Main = () => {
-	const useStyles = makeStyles({
-		titleContainer: {
-			margin: "30px",
-		},
+	const useStyles = makeStyles((root) => ({
 		title: {
 			textAlign: "center",
 			fontSize: 50,
 			fontFamily: "Patrick Hand",
+			marginTop: "10px",
+			[root.breakpoints.down("sm")]: {
+				fontSize: 40,
+				margin: "10px",
+			},
 		},
-		containerDescription: {
-			textAlign: "center",
-			marginLeft: "200px",
-		},
+
 		description: {
 			fontFamily: "Bree Serif",
 			textAlign: "justify",
 			fontSize: 25,
-			marginTop: "50px",
-			paddingLeft: "30px",
-			height: "500px",
-			width: "65vw",
+
+			[root.breakpoints.down("sm")]: {
+				fontSize: 20,
+			},
 		},
 		descriptionTechnique: {
 			fontFamily: "Bree Serif",
 			textAlign: "justify",
 			fontSize: 25,
-			marginTop: "50px",
-			paddingLeft: "30px",
-			height: "300px",
-			width: "65vw",
+			[root.breakpoints.down("sm")]: {
+				fontSize: 20,
+			},
 		},
-	});
+	}));
 
 	const classes = useStyles();
 	return (
 		<div id="main">
-			{/* <div className={classes.titleContainer}> */}
 			<h1 className={classes.title}>
-				La Technique Pomodoro C'est Quoi Au Juste ? 🙄
+				La Technique Pomodoro C'est Quoi Au Juste ? <br />
+				🙄
 			</h1>
-			{/* </div> */}
-			<hr />
-			<div className={classes.containerDescription}>
-				<article className={classes.description}>
+
+			<Box mx={{ xs: 5, sm: 10, md: 35 }}>
+				<hr />
+				<Box
+					my={{ md: 7 }}
+					mt={{ xs: 5 }}
+					className={classes.description}>
 					<p>
 						La{" "}
 						<span>
@@ -87,12 +86,16 @@ const Main = () => {
 						consolidation de la mémoire peuvent être observés
 						expérimentalement.
 					</p>
-				</article>
+				</Box>
+
 				<h1 className={classes.title}>
 					Comment Mettre En Place Cette Technique ?🤔
 				</h1>
 				<hr />
-				<article className={classes.descriptionTechnique}>
+				<Box
+					my={{ md: 7 }}
+					mt={{ xs: 5 }}
+					className={classes.descriptionTechnique}>
 					<ul>
 						<li>Décider de la tâche à effectuer</li>
 						<li>Régler le pomodoro (minuteur) sur 25 minutes</li>
@@ -110,8 +113,8 @@ const Main = () => {
 							productivité😁😎
 						</li>
 					</ul>
-				</article>
-			</div>
+				</Box>
+			</Box>
 		</div>
 	);
 };
