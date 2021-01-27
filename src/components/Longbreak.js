@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
-import boopSfx from "../sounds/crash.mp3";
+import boop from "../sounds/bip.wav";
+import bip from "../sounds/click.wav";
 import { LinearProgress, Button, makeStyles } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 
@@ -12,7 +13,8 @@ const Longbreak = () => {
 	const [minute, setMinute] = useState("15");
 	const [counter, setCounter] = useState(900);
 	const [active, setActive] = useState(false);
-	const [play] = useSound(boopSfx);
+	const [play] = useSound(boop);
+	const [click] = useSound(bip);
 
 	const useStyles = makeStyles({
 		longbreak: {
@@ -98,6 +100,7 @@ const Longbreak = () => {
 		setMinute("15");
 		setCounter(900);
 		setActive(false);
+		play();
 	};
 
 	return (
@@ -126,8 +129,8 @@ const Longbreak = () => {
 			<Button
 				className={classes.buttonStart}
 				startIcon={<TimerIcon />}
-				variant="outlined"
-				color="primary"
+				variant="contained"
+				onMouseDown={click}
 				onClick={() => setActive(!active)}>
 				{active ? "Pause" : "Start"}
 			</Button>

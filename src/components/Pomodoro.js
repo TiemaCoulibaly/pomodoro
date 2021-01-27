@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
-import boopSfx from "../sounds/bip.wav";
+import boop from "../sounds/bip.wav";
+import bip from "../sounds/click.wav";
 
 import { Redirect } from "react-router-dom";
 import { LinearProgress, Button, makeStyles } from "@material-ui/core";
@@ -12,8 +13,8 @@ const Pomodoro = () => {
 	const [minute, setMinute] = useState("25");
 	const [counter, setCounter] = useState(1500);
 	const [active, setActive] = useState(false);
-	const [play] = useSound(boopSfx);
-	const [playClick] = useSound("../sounds/click.wav");
+	const [play] = useSound(boop);
+	const [click] = useSound(bip);
 
 	const useStyles = makeStyles({
 		pomodoro: {
@@ -87,6 +88,7 @@ const Pomodoro = () => {
 		setTimeout(() => {
 			if (counter === -1) {
 				play();
+				play();
 				clearTimeout(intervalId);
 			}
 		});
@@ -99,7 +101,7 @@ const Pomodoro = () => {
 		setMinute("25");
 		setCounter(1500);
 		setActive(false);
-		playClick();
+		play();
 	};
 
 	return (
@@ -121,6 +123,7 @@ const Pomodoro = () => {
 				className={classes.buttonStart}
 				startIcon={<TimerIcon />}
 				variant="contained"
+				onMouseDown={click}
 				onClick={() => setActive(!active)}>
 				{active ? "Pause" : "Start"}
 			</Button>

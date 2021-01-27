@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSound from "use-sound";
-import boopSfx from "../sounds/bip.wav";
+import boop from "../sounds/bip.wav";
+import bip from "../sounds/click.wav";
 import { Redirect } from "react-router-dom";
 import { LinearProgress, Button, makeStyles } from "@material-ui/core";
 
@@ -11,7 +12,8 @@ const Shortbreak = () => {
 	const [minute, setMinute] = useState("05");
 	const [counter, setCounter] = useState(3);
 	const [active, setActive] = useState(false);
-	const [play] = useSound(boopSfx);
+	const [play] = useSound(boop);
+	const [click] = useSound(bip);
 
 	const useStyles = makeStyles({
 		shortbreak: {
@@ -86,6 +88,7 @@ const Shortbreak = () => {
 		setTimeout(() => {
 			if (counter === -1) {
 				play();
+				play();
 				clearTimeout(intervalId);
 			}
 		});
@@ -97,6 +100,7 @@ const Shortbreak = () => {
 		setMinute("05");
 		setCounter(300);
 		setActive(false);
+		play();
 	};
 
 	return (
@@ -119,6 +123,7 @@ const Shortbreak = () => {
 				startIcon={<TimerIcon />}
 				variant="outlined"
 				color="primary"
+				onMouseDown={click}
 				onClick={() => setActive(!active)}>
 				{active ? "Pause" : "Start"}
 			</Button>
