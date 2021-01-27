@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
-import useSound from "use-sound";
-import boop from "../sounds/bip.wav";
-import bip from "../sounds/click.wav";
-
 import { Redirect } from "react-router-dom";
+
 import { LinearProgress, Button, makeStyles } from "@material-ui/core";
 import TimerIcon from "@material-ui/icons/Timer";
 import RotateLeftIcon from "@material-ui/icons/RotateLeft";
 
+import useSound from "use-sound";
+import boop from "../sounds/bip.wav";
+import bip from "../sounds/click.wav";
+
+import Music from "./Music";
+
 const Pomodoro = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("25");
-	const [counter, setCounter] = useState(1500);
+	const [counter, setCounter] = useState(145);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boop);
 	const [click] = useSound(bip);
 
-	const useStyles = makeStyles({
+	const useStyles = makeStyles((root) => ({
 		pomodoro: {
 			backgroundColor: "#D3FAC7",
 			textAlign: "center",
-			height: "300px",
+			height: "350px",
+			[root.breakpoints.down("sm")]: {
+				height: "370px",
+			},
 		},
 		timeContainer: {
 			paddingTop: "10px",
@@ -61,7 +67,7 @@ const Pomodoro = () => {
 			marginBottom: "15px",
 			marginTop: "10px",
 		},
-	});
+	}));
 	const classes = useStyles();
 	useEffect(() => {
 		let intervalId;
@@ -88,7 +94,7 @@ const Pomodoro = () => {
 		setTimeout(() => {
 			if (counter === -1) {
 				play();
-				play();
+
 				clearTimeout(intervalId);
 			}
 		});
@@ -135,6 +141,7 @@ const Pomodoro = () => {
 				onClick={resetTimer}>
 				Reset
 			</Button>
+			<Music />
 		</div>
 	);
 };

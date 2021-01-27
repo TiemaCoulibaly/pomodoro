@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Pomodoro from "./Pomodoro";
 import Shortbreak from "./Shortbreak";
 import Longbreak from "./Longbreak";
+
 import "../styles.css";
 const Header = () => {
 	const useStyles = makeStyles((root) => ({
@@ -13,7 +14,7 @@ const Header = () => {
 			height: "600px",
 			paddingTop: "100px",
 			[root.breakpoints.down("sm")]: {
-				height: "450px",
+				height: "500px",
 				paddingTop: "30px",
 			},
 		},

@@ -88,7 +88,7 @@ const Shortbreak = () => {
 		setTimeout(() => {
 			if (counter === -1) {
 				play();
-				play();
+
 				clearTimeout(intervalId);
 			}
 		});
