@@ -5,13 +5,13 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import PauseIcon from "@material-ui/icons/Pause";
 
 import useSound from "use-sound";
-import river from "../sounds/n5.mp3";
+import river from "../sounds/audioRiver.mp3";
 
 const Music = () => {
 	const [noise, { stop, isPlaying }] = useSound(river, {
 		sprite: {
-			playStart: [10, 144600],
-			playTimeLength: [10, 144600],
+			bip: [30000, 1500000000000],
+			n7: [1, 1500000000000],
 		},
 	});
 
@@ -19,7 +19,7 @@ const Music = () => {
 		if (isPlaying) {
 			stop();
 		} else {
-			noise({ id: "playTimeLength" });
+			noise({ id: "bip" });
 		}
 	};
 
@@ -38,10 +38,10 @@ const Music = () => {
 	return (
 		<div className={classes.root}>
 			<h4 className={classes.title}>
-				🔊Un petit son d'ambiance de 2min🎧
+				🔊 Un Fond D'Ambiance Naturel Sa Te Dit ? 🎧
 			</h4>
 			<Fab pt={4} onClick={playMe}>
-				{!isPlaying ? <PlayArrowIcon /> : <PauseIcon />}
+				play
 			</Fab>
 		</div>
 	);

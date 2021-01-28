@@ -15,6 +15,7 @@ const Longbreak = () => {
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boop);
 	const [click] = useSound(bip);
+	const timeClock = counter / 60;
 
 	const useStyles = makeStyles({
 		longbreak: {
@@ -105,7 +106,7 @@ const Longbreak = () => {
 
 	return (
 		<div className={classes.longbreak}>
-			<LinearProgress variant="determinate" value={counter} />
+			<LinearProgress variant="determinate" value={timeClock} />
 			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
 					{counter === -1 ? <Redirect to="/" /> : minute}

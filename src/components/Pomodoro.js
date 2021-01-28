@@ -9,24 +9,20 @@ import useSound from "use-sound";
 import boop from "../sounds/bip.wav";
 import bip from "../sounds/click.wav";
 
-import Music from "./Music";
-
 const Pomodoro = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("25");
-	const [counter, setCounter] = useState(145);
+	const [counter, setCounter] = useState(1500);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boop);
 	const [click] = useSound(bip);
+	const timeClock = counter / 60;
 
 	const useStyles = makeStyles((root) => ({
-		pomodoro: {
+		root: {
 			backgroundColor: "#D3FAC7",
 			textAlign: "center",
-			height: "350px",
-			[root.breakpoints.down("sm")]: {
-				height: "370px",
-			},
+			height: "300px",
 		},
 		timeContainer: {
 			paddingTop: "10px",
@@ -111,8 +107,8 @@ const Pomodoro = () => {
 	};
 
 	return (
-		<div className={classes.pomodoro}>
-			<LinearProgress variant="determinate" value={counter} />
+		<div className={classes.root}>
+			<LinearProgress variant="determinate" value={timeClock} />
 			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
 					{counter === -1 ? <Redirect to="/Shortbreak" /> : minute}
@@ -141,7 +137,6 @@ const Pomodoro = () => {
 				onClick={resetTimer}>
 				Reset
 			</Button>
-			<Music />
 		</div>
 	);
 };

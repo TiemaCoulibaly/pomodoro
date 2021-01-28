@@ -14,7 +14,7 @@ const Header = () => {
 			height: "600px",
 			paddingTop: "100px",
 			[root.breakpoints.down("sm")]: {
-				height: "500px",
+				height: "450px",
 				paddingTop: "30px",
 			},
 		},

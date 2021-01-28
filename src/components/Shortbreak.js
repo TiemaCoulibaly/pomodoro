@@ -10,10 +10,11 @@ import RotateLeftIcon from "@material-ui/icons/RotateLeft";
 const Shortbreak = () => {
 	const [second, setSecond] = useState("00");
 	const [minute, setMinute] = useState("05");
-	const [counter, setCounter] = useState(3);
+	const [counter, setCounter] = useState(300);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boop);
 	const [click] = useSound(bip);
+	const timeClock = counter / 60;
 
 	const useStyles = makeStyles({
 		shortbreak: {
@@ -105,7 +106,7 @@ const Shortbreak = () => {
 
 	return (
 		<div className={classes.shortbreak}>
-			<LinearProgress variant="determinate" value={counter} />
+			<LinearProgress variant="determinate" value={timeClock} />
 			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
 					{counter === -1 ? <Redirect to="/" /> : minute}
