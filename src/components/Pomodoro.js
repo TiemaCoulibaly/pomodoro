@@ -10,8 +10,6 @@ import boop from "../sounds/bip.wav";
 import bip from "../sounds/click.wav";
 
 const Pomodoro = () => {
-	const [second, setSecond] = useState("00");
-	const [minute, setMinute] = useState("25");
 	const [counter, setCounter] = useState(1500);
 	const [active, setActive] = useState(false);
 	const [play] = useSound(boop);
@@ -70,28 +68,12 @@ const Pomodoro = () => {
 
 		if (active) {
 			intervalId = setInterval(() => {
-				const secondCounter = counter % 60;
-				const minuteCounter = Math.floor(counter / 60);
-
-				const updatedSecond =
-					String(secondCounter).length === 1
-						? `0${secondCounter}`
-						: secondCounter;
-				const updatedMinute =
-					String(minuteCounter).length === 1
-						? `0${minuteCounter}`
-						: minuteCounter;
-
-				setSecond(updatedSecond);
-				setMinute(updatedMinute);
 				setCounter((counter) => counter - 1);
 			}, 1000);
 		}
 		setTimeout(() => {
-			if (counter === -1) {
+			if (counter === 0) {
 				play();
-
-				clearTimeout(intervalId);
 			}
 		});
 
@@ -99,8 +81,6 @@ const Pomodoro = () => {
 	}, [active, counter, play]);
 
 	const resetTimer = () => {
-		setSecond("00");
-		setMinute("25");
 		setCounter(1500);
 		setActive(false);
 		play();
@@ -111,11 +91,19 @@ const Pomodoro = () => {
 			<LinearProgress variant="determinate" value={timeClock} />
 			<h1 className={classes.timeContainer}>
 				<span className={classes.time}>
-					{counter === -1 ? <Redirect to="/Shortbreak" /> : minute}
+					{counter === -1 ? (
+						<Redirect to="/Shortbreak" />
+					) : (
+						`${Math.floor(counter / 60)}`
+					)}
 				</span>
 				<span className={classes.time}>:</span>
 				<span className={classes.time}>
-					{counter === -1 ? <Redirect to="/Shortbreak" /> : second}
+					{counter === -1 ? (
+						<Redirect to="/Shortbreak" />
+					) : (
+						`${("00" + (counter % 60)).slice(-2)}`
+					)}
 				</span>
 			</h1>
 			<p className={classes.text}>
