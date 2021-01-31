@@ -17,7 +17,7 @@ const Footer = () => {
 				<a
 					target="_blank"
 					rel="noreferrer"
-					href="https://tiema-resume.firebaseapp.com/">
+					href="https://tiema-resume.web.app/">
 					Tiema Coulibaly{" "}
 				</a>
 			</span>
