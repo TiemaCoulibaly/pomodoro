@@ -68,7 +68,7 @@ const Shortbreak = () => {
 		if (active) {
 			intervalId = setInterval(() => {
 				setCounter((counter) => counter - 1);
-			}, 1000);
+			}, 970);
 		}
 		setTimeout(() => {
 			if (counter === 0) {
