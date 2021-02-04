@@ -69,7 +69,7 @@ const Pomodoro = () => {
 		if (active) {
 			intervalId = setInterval(() => {
 				setCounter((counter) => counter - 1);
-			}, 970);
+			}, 900);
 		}
 		setTimeout(() => {
 			if (counter === 0) {
