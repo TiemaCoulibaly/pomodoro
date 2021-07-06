@@ -69,7 +69,7 @@ const Longbreak = () => {
 		if (active) {
 			intervalId = setInterval(() => {
 				setCounter((counter) => counter - 1);
-			}, 500);
+			}, 1000);
 		}
 		setTimeout(() => {
 			if (counter === 0) {
